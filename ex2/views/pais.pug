@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title= pais
+    link(rel='stylesheet', href='/w3.css')
+  body
+    .w3-container.w3-teal
+      h2= pais
+      a(href='/').w3-button.w3-light-grey Voltar
+
+    .w3-container
+      h3 Edições em que participou
+      if participacoes.length === 0
+        p Nenhuma participação encontrada.
+      else
+        table.w3-table-all
+          tr
+            th Edição
+            th Ano
+            th Música
+            th Intérprete
+            th Vencedor?
+          each p in participacoes
+            tr
+              td
+                a(href='/edicao/' + p.id)= p.id
+              td= p.ano
+              td= p.titulo
+              td= p.interprete
+              td= p.vencedor ? 'Sim' : 'Não'
+
+    .w3-container
+      h3 Edições que organizou
+      if organizou.length === 0
+        p Nunca organizou nenhuma edição.
+      else
+        table.w3-table-all
+          tr
+            th Edição
+            th Ano
+          each o in organizou
+            tr
+              td
+                a(href='/edicao/' + o.id)= o.id
+              td= o.ano

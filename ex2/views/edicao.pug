@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Edição #{edicao.id}
+    link(rel='stylesheet', href='/w3.css')
+  body
+    .w3-container.w3-teal
+      h2 Edição #{edicao.id} (#{edicao.anoEdição})
+      a(href='/').w3-button.w3-light-grey Voltar
+    .w3-container
+      p 
+        | <b>Organizador:</b> 
+        a(href='/paises/' + edicao.organizacao)= edicao.organizacao
+        br
+        | <b>Vencedor:</b> 
+        if edicao.vencedor
+          a(href='/paises/' + edicao.vencedor)= edicao.vencedor
+        else
+          | -
+      h3 Músicas
+      table.w3-table-all
+        tr
+          th Título
+          th País
+          th Intérprete
+        each m in edicao.musicas
+          tr
+            td= m.título
+            td= m.país
+            td= m.intérprete

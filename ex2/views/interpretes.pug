@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Intérpretes
+    link(rel='stylesheet', href='/w3.css')
+  body
+    .w3-container.w3-teal
+      h2 Intérpretes
+      a(href='/').w3-button.w3-light-grey Voltar
+    .w3-container
+      table.w3-table-all
+        tr
+          th Nome
+          th País
+        each i in interpretes
+          tr
+            td= i.nome
+            td= i.pais
